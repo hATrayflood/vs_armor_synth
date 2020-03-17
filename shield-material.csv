@@ -1,0 +1,7 @@
+,W-shield,B-shield,I-shield,H-shield,S-shield,D-shield
+W-shield,W,B,I,H,S,D
+B-shield,B,B,H,S,B,H
+I-shield,I,H,I,H,I,H
+H-shield,H,H,H,H,H,H
+S-shield,S,B,I,H,S,S
+D-shield,D,H,H,H,S,D
