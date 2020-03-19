@@ -30,102 +30,131 @@ summary-edged    = {" "}DP:{$dp} {type-edged}:{$type}
 summary-piercing = {" "}DP:{$dp} {type-piercing}:{$type}
 
 icon-shield = 🛡️
-icon-head = ⛑️
-icon-body = 🧥
-icon-arms = 🧤
-icon-legs = 🥾
+icon-head   = ⛑️
+icon-body   = 🧥
+icon-arms   = 🧤
+icon-legs   = 🥾
+
+icon-material = { $material ->
+  *[W] 🅆
+   [L] 🄻
+   [B] 🄱
+   [I] 🄸
+   [H] 🄷
+   [S] 🅂
+   [D] 🄳
+}
+
+icon-rank = { $rank ->
+  *[1] ①
+   [2] ②
+   [3] ③
+   [4] ④
+   [5] ⑤
+   [6] ⑥
+   [7] ⑦
+   [8] ⑧
+   [9] ⑨
+  [10] ⑩
+  [11] ⑪
+  [12] ⑫
+  [13] ⑬
+  [14] ⑭
+  [15] ⑮
+  [16] ⑯
+}
 
 shield = { $rank ->
-  *[1] {$material}{icon-shield}{$rank} Buckler
-   [2] {$material}{icon-shield}{$rank} Pelta Shield
-   [3] {$material}{icon-shield}{$rank} Targe
-   [4] {$material}{icon-shield}{$rank} Quad Shield
-   [5] {$material}{icon-shield}{$rank} Circle Shield
-   [6] {$material}{icon-shield}{$rank} Tower Shield
-   [7] {$material}{icon-shield}{$rank} Spiked Shield
-   [8] {$material}{icon-shield}{$rank} Round Shield
-   [9] {$material}{icon-shield}{$rank} Kite Shield
-  [10] {$material}{icon-shield}{$rank} Casserole Shield
-  [11] {$material}{icon-shield}{$rank} Heater Shield
-  [12] {$material}{icon-shield}{$rank} Oval Shield
-  [13] {$material}{icon-shield}{$rank} Knight Shield
-  [14] {$material}{icon-shield}{$rank} Hoplite Shield
-  [15] {$material}{icon-shield}{$rank} Jazeraint Shield
-  [16] {$material}{icon-shield}{$rank} Dread Shield
+  *[1] {icon-material}{icon-shield}{icon-rank} Buckler
+   [2] {icon-material}{icon-shield}{icon-rank} Pelta Shield
+   [3] {icon-material}{icon-shield}{icon-rank} Targe
+   [4] {icon-material}{icon-shield}{icon-rank} Quad Shield
+   [5] {icon-material}{icon-shield}{icon-rank} Circle Shield
+   [6] {icon-material}{icon-shield}{icon-rank} Tower Shield
+   [7] {icon-material}{icon-shield}{icon-rank} Spiked Shield
+   [8] {icon-material}{icon-shield}{icon-rank} Round Shield
+   [9] {icon-material}{icon-shield}{icon-rank} Kite Shield
+  [10] {icon-material}{icon-shield}{icon-rank} Casserole Shield
+  [11] {icon-material}{icon-shield}{icon-rank} Heater Shield
+  [12] {icon-material}{icon-shield}{icon-rank} Oval Shield
+  [13] {icon-material}{icon-shield}{icon-rank} Knight Shield
+  [14] {icon-material}{icon-shield}{icon-rank} Hoplite Shield
+  [15] {icon-material}{icon-shield}{icon-rank} Jazeraint Shield
+  [16] {icon-material}{icon-shield}{icon-rank} Dread Shield
 }
 
 head = { $rank ->
-  *[1] {$material}{icon-head}{$rank} Bandana
-   [2] {$material}{icon-head}{$rank} Bear Mask
-   [3] {$material}{icon-head}{$rank} Wizard Hat
-   [4] {$material}{icon-head}{$rank} Bone Helm
-   [5] {$material}{icon-head}{$rank} Chain Coif
-   [6] {$material}{icon-head}{$rank} Spangenhelm
-   [7] {$material}{icon-head}{$rank} Cabasset
-   [8] {$material}{icon-head}{$rank} Sallet
-   [9] {$material}{icon-head}{$rank} Barbut
-  [10] {$material}{icon-head}{$rank} Basinet
-  [11] {$material}{icon-head}{$rank} Armet
-  [12] {$material}{icon-head}{$rank} Close Helm
-  [13] {$material}{icon-head}{$rank} Burgonet
-  [14] {$material}{icon-head}{$rank} Hoplite Helm
-  [15] {$material}{icon-head}{$rank} Jazeraint Helm
-  [16] {$material}{icon-head}{$rank} Dread Helm
+  *[1] {icon-material}{icon-head}{icon-rank} Bandana
+   [2] {icon-material}{icon-head}{icon-rank} Bear Mask
+   [3] {icon-material}{icon-head}{icon-rank} Wizard Hat
+   [4] {icon-material}{icon-head}{icon-rank} Bone Helm
+   [5] {icon-material}{icon-head}{icon-rank} Chain Coif
+   [6] {icon-material}{icon-head}{icon-rank} Spangenhelm
+   [7] {icon-material}{icon-head}{icon-rank} Cabasset
+   [8] {icon-material}{icon-head}{icon-rank} Sallet
+   [9] {icon-material}{icon-head}{icon-rank} Barbut
+  [10] {icon-material}{icon-head}{icon-rank} Basinet
+  [11] {icon-material}{icon-head}{icon-rank} Armet
+  [12] {icon-material}{icon-head}{icon-rank} Close Helm
+  [13] {icon-material}{icon-head}{icon-rank} Burgonet
+  [14] {icon-material}{icon-head}{icon-rank} Hoplite Helm
+  [15] {icon-material}{icon-head}{icon-rank} Jazeraint Helm
+  [16] {icon-material}{icon-head}{icon-rank} Dread Helm
 }
 
 body = { $rank ->
-  *[1] {$material}{icon-body}{$rank} Jerkin
-   [2] {$material}{icon-body}{$rank} Hauberk
-   [3] {$material}{icon-body}{$rank} Wizard Robe
-   [4] {$material}{icon-body}{$rank} Cuirass
-   [5] {$material}{icon-body}{$rank} Banded Mail
-   [6] {$material}{icon-body}{$rank} Ring Mail
-   [7] {$material}{icon-body}{$rank} Chain Mail
-   [8] {$material}{icon-body}{$rank} Breastplate
-   [9] {$material}{icon-body}{$rank} Segmentata
-  [10] {$material}{icon-body}{$rank} Scale Armor
-  [11] {$material}{icon-body}{$rank} Brigandine
-  [12] {$material}{icon-body}{$rank} Plate Mail
-  [13] {$material}{icon-body}{$rank} Fluted Armor
-  [14] {$material}{icon-body}{$rank} Hoplite Armor
-  [15] {$material}{icon-body}{$rank} Jazeraint Armor
-  [16] {$material}{icon-body}{$rank} Dread Armor
+  *[1] {icon-material}{icon-body}{icon-rank} Jerkin
+   [2] {icon-material}{icon-body}{icon-rank} Hauberk
+   [3] {icon-material}{icon-body}{icon-rank} Wizard Robe
+   [4] {icon-material}{icon-body}{icon-rank} Cuirass
+   [5] {icon-material}{icon-body}{icon-rank} Banded Mail
+   [6] {icon-material}{icon-body}{icon-rank} Ring Mail
+   [7] {icon-material}{icon-body}{icon-rank} Chain Mail
+   [8] {icon-material}{icon-body}{icon-rank} Breastplate
+   [9] {icon-material}{icon-body}{icon-rank} Segmentata
+  [10] {icon-material}{icon-body}{icon-rank} Scale Armor
+  [11] {icon-material}{icon-body}{icon-rank} Brigandine
+  [12] {icon-material}{icon-body}{icon-rank} Plate Mail
+  [13] {icon-material}{icon-body}{icon-rank} Fluted Armor
+  [14] {icon-material}{icon-body}{icon-rank} Hoplite Armor
+  [15] {icon-material}{icon-body}{icon-rank} Jazeraint Armor
+  [16] {icon-material}{icon-body}{icon-rank} Dread Armor
 }
 
 arms = { $rank ->
-  *[1] {$material}{icon-arms}{$rank} Bandage
-   [2] {$material}{icon-arms}{$rank} Leather Glove
-   [3] {$material}{icon-arms}{$rank} Reinforced Glove
-   [4] {$material}{icon-arms}{$rank} Knuckles
-   [5] {$material}{icon-arms}{$rank} Ring Sleeve
-   [6] {$material}{icon-arms}{$rank} Chain Sleeve
-   [7] {$material}{icon-arms}{$rank} Gauntlet
-   [8] {$material}{icon-arms}{$rank} Vambrace
-   [9] {$material}{icon-arms}{$rank} Plate Glove
-  [10] {$material}{icon-arms}{$rank} Rondanche
-  [11] {$material}{icon-arms}{$rank} Tilt Glove
-  [12] {$material}{icon-arms}{$rank} Freiturnier
-  [13] {$material}{icon-arms}{$rank} Fluted Glove
-  [14] {$material}{icon-arms}{$rank} Hoplite Glove
-  [15] {$material}{icon-arms}{$rank} Jazeraint Glove
-  [16] {$material}{icon-arms}{$rank} Dread Glove
+  *[1] {icon-material}{icon-arms}{icon-rank} Bandage
+   [2] {icon-material}{icon-arms}{icon-rank} Leather Glove
+   [3] {icon-material}{icon-arms}{icon-rank} Reinforced Glove
+   [4] {icon-material}{icon-arms}{icon-rank} Knuckles
+   [5] {icon-material}{icon-arms}{icon-rank} Ring Sleeve
+   [6] {icon-material}{icon-arms}{icon-rank} Chain Sleeve
+   [7] {icon-material}{icon-arms}{icon-rank} Gauntlet
+   [8] {icon-material}{icon-arms}{icon-rank} Vambrace
+   [9] {icon-material}{icon-arms}{icon-rank} Plate Glove
+  [10] {icon-material}{icon-arms}{icon-rank} Rondanche
+  [11] {icon-material}{icon-arms}{icon-rank} Tilt Glove
+  [12] {icon-material}{icon-arms}{icon-rank} Freiturnier
+  [13] {icon-material}{icon-arms}{icon-rank} Fluted Glove
+  [14] {icon-material}{icon-arms}{icon-rank} Hoplite Glove
+  [15] {icon-material}{icon-arms}{icon-rank} Jazeraint Glove
+  [16] {icon-material}{icon-arms}{icon-rank} Dread Glove
 }
 
 legs = { $rank ->
-  *[1] {$material}{icon-legs}{$rank} Sandals
-   [2] {$material}{icon-legs}{$rank} Boots
-   [3] {$material}{icon-legs}{$rank} Long Boots
-   [4] {$material}{icon-legs}{$rank} Cuisse
-   [5] {$material}{icon-legs}{$rank} Light Greave
-   [6] {$material}{icon-legs}{$rank} Ring Leggings
-   [7] {$material}{icon-legs}{$rank} Chain Leggings
-   [8] {$material}{icon-legs}{$rank} Fusskampf
-   [9] {$material}{icon-legs}{$rank} Poleyn
-  [10] {$material}{icon-legs}{$rank} Jambeau
-  [11] {$material}{icon-legs}{$rank} Missaglia
-  [12] {$material}{icon-legs}{$rank} Plate Leggings
-  [13] {$material}{icon-legs}{$rank} Fluted Leggings
-  [14] {$material}{icon-legs}{$rank} Hoplite Leggings
-  [15] {$material}{icon-legs}{$rank} Jazeraint Leggings
-  [16] {$material}{icon-legs}{$rank} Dread Leggings
+  *[1] {icon-material}{icon-legs}{icon-rank} Sandals
+   [2] {icon-material}{icon-legs}{icon-rank} Boots
+   [3] {icon-material}{icon-legs}{icon-rank} Long Boots
+   [4] {icon-material}{icon-legs}{icon-rank} Cuisse
+   [5] {icon-material}{icon-legs}{icon-rank} Light Greave
+   [6] {icon-material}{icon-legs}{icon-rank} Ring Leggings
+   [7] {icon-material}{icon-legs}{icon-rank} Chain Leggings
+   [8] {icon-material}{icon-legs}{icon-rank} Fusskampf
+   [9] {icon-material}{icon-legs}{icon-rank} Poleyn
+  [10] {icon-material}{icon-legs}{icon-rank} Jambeau
+  [11] {icon-material}{icon-legs}{icon-rank} Missaglia
+  [12] {icon-material}{icon-legs}{icon-rank} Plate Leggings
+  [13] {icon-material}{icon-legs}{icon-rank} Fluted Leggings
+  [14] {icon-material}{icon-legs}{icon-rank} Hoplite Leggings
+  [15] {icon-material}{icon-legs}{icon-rank} Jazeraint Leggings
+  [16] {icon-material}{icon-legs}{icon-rank} Dread Leggings
 }

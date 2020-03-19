@@ -30,102 +30,131 @@ summary-edged    = {" "}DP:{$dp} {type-edged}:{$type}
 summary-piercing = {" "}DP:{$dp} {type-piercing}:{$type}
 
 icon-shield = 🛡️
-icon-head = ⛑️
-icon-body = 🧥
-icon-arms = 🧤
-icon-legs = 🥾
+icon-head   = ⛑️
+icon-body   = 🧥
+icon-arms   = 🧤
+icon-legs   = 🥾
+
+icon-material = { $material ->
+  *[W] 🅆
+   [L] 🄻
+   [B] 🄱
+   [I] 🄸
+   [H] 🄷
+   [S] 🅂
+   [D] 🄳
+}
+
+icon-rank = { $rank ->
+  *[1] ①
+   [2] ②
+   [3] ③
+   [4] ④
+   [5] ⑤
+   [6] ⑥
+   [7] ⑦
+   [8] ⑧
+   [9] ⑨
+  [10] ⑩
+  [11] ⑪
+  [12] ⑫
+  [13] ⑬
+  [14] ⑭
+  [15] ⑮
+  [16] ⑯
+}
 
 shield = { $rank ->
-  *[1] {$material}{icon-shield}{$rank} バックラー
-   [2] {$material}{icon-shield}{$rank} ペルタシールド
-   [3] {$material}{icon-shield}{$rank} タージェ
-   [4] {$material}{icon-shield}{$rank} クワッドシールド
-   [5] {$material}{icon-shield}{$rank} サークルシールド
-   [6] {$material}{icon-shield}{$rank} タワーシールド
-   [7] {$material}{icon-shield}{$rank} スパイクシールド
-   [8] {$material}{icon-shield}{$rank} ラウンドシールド
-   [9] {$material}{icon-shield}{$rank} カイトシールド
-  [10] {$material}{icon-shield}{$rank} カセロルシールド
-  [11] {$material}{icon-shield}{$rank} ヒーターシールド
-  [12] {$material}{icon-shield}{$rank} オーバルシールド
-  [13] {$material}{icon-shield}{$rank} ナイトシールド
-  [14] {$material}{icon-shield}{$rank} ホプロンシールド
-  [15] {$material}{icon-shield}{$rank} ロゼンジシールド
-  [16] {$material}{icon-shield}{$rank} ドレッドシールド
+  *[1] {icon-material}{icon-shield}{icon-rank} バックラー
+   [2] {icon-material}{icon-shield}{icon-rank} ペルタシールド
+   [3] {icon-material}{icon-shield}{icon-rank} タージェ
+   [4] {icon-material}{icon-shield}{icon-rank} クワッドシールド
+   [5] {icon-material}{icon-shield}{icon-rank} サークルシールド
+   [6] {icon-material}{icon-shield}{icon-rank} タワーシールド
+   [7] {icon-material}{icon-shield}{icon-rank} スパイクシールド
+   [8] {icon-material}{icon-shield}{icon-rank} ラウンドシールド
+   [9] {icon-material}{icon-shield}{icon-rank} カイトシールド
+  [10] {icon-material}{icon-shield}{icon-rank} カセロルシールド
+  [11] {icon-material}{icon-shield}{icon-rank} ヒーターシールド
+  [12] {icon-material}{icon-shield}{icon-rank} オーバルシールド
+  [13] {icon-material}{icon-shield}{icon-rank} ナイトシールド
+  [14] {icon-material}{icon-shield}{icon-rank} ホプロンシールド
+  [15] {icon-material}{icon-shield}{icon-rank} ロゼンジシールド
+  [16] {icon-material}{icon-shield}{icon-rank} ドレッドシールド
 }
 
 head = { $rank ->
-  *[1] {$material}{icon-head}{$rank} バンダナ
-   [2] {$material}{icon-head}{$rank} ベアーマスク
-   [3] {$material}{icon-head}{$rank} ウィザードハット
-   [4] {$material}{icon-head}{$rank} ボーンヘルム
-   [5] {$material}{icon-head}{$rank} チェインコイフ
-   [6] {$material}{icon-head}{$rank} スパンゲンヘルム
-   [7] {$material}{icon-head}{$rank} キャバセット
-   [8] {$material}{icon-head}{$rank} サーリット
-   [9] {$material}{icon-head}{$rank} バルビューダ
-  [10] {$material}{icon-head}{$rank} バシニット
-  [11] {$material}{icon-head}{$rank} アーメット
-  [12] {$material}{icon-head}{$rank} クローズヘルム
-  [13] {$material}{icon-head}{$rank} バーゴネット
-  [14] {$material}{icon-head}{$rank} ホプロンヘルム
-  [15] {$material}{icon-head}{$rank} ロゼンジヘルム
-  [16] {$material}{icon-head}{$rank} ドレッドヘルム
+  *[1] {icon-material}{icon-head}{icon-rank} バンダナ
+   [2] {icon-material}{icon-head}{icon-rank} ベアーマスク
+   [3] {icon-material}{icon-head}{icon-rank} ウィザードハット
+   [4] {icon-material}{icon-head}{icon-rank} ボーンヘルム
+   [5] {icon-material}{icon-head}{icon-rank} チェインコイフ
+   [6] {icon-material}{icon-head}{icon-rank} スパンゲンヘルム
+   [7] {icon-material}{icon-head}{icon-rank} キャバセット
+   [8] {icon-material}{icon-head}{icon-rank} サーリット
+   [9] {icon-material}{icon-head}{icon-rank} バルビューダ
+  [10] {icon-material}{icon-head}{icon-rank} バシニット
+  [11] {icon-material}{icon-head}{icon-rank} アーメット
+  [12] {icon-material}{icon-head}{icon-rank} クローズヘルム
+  [13] {icon-material}{icon-head}{icon-rank} バーゴネット
+  [14] {icon-material}{icon-head}{icon-rank} ホプロンヘルム
+  [15] {icon-material}{icon-head}{icon-rank} ロゼンジヘルム
+  [16] {icon-material}{icon-head}{icon-rank} ドレッドヘルム
 }
 
 body = { $rank ->
-  *[1] {$material}{icon-body}{$rank} ジャーキン
-   [2] {$material}{icon-body}{$rank} ロングコート
-   [3] {$material}{icon-body}{$rank} ウィザードコート
-   [4] {$material}{icon-body}{$rank} キュラッサ
-   [5] {$material}{icon-body}{$rank} バンデッドメイル
-   [6] {$material}{icon-body}{$rank} リングメイル
-   [7] {$material}{icon-body}{$rank} チェインメイル
-   [8] {$material}{icon-body}{$rank} ブレストプレート
-   [9] {$material}{icon-body}{$rank} セグメンテータ
-  [10] {$material}{icon-body}{$rank} スケールアーマー
-  [11] {$material}{icon-body}{$rank} ブリガンダイン
-  [12] {$material}{icon-body}{$rank} プレイトメイル
-  [13] {$material}{icon-body}{$rank} フリュートメイル
-  [14] {$material}{icon-body}{$rank} ホプロンアーマー
-  [15] {$material}{icon-body}{$rank} ロゼンジアーマー
-  [16] {$material}{icon-body}{$rank} ドレッドアーマー
+  *[1] {icon-material}{icon-body}{icon-rank} ジャーキン
+   [2] {icon-material}{icon-body}{icon-rank} ロングコート
+   [3] {icon-material}{icon-body}{icon-rank} ウィザードコート
+   [4] {icon-material}{icon-body}{icon-rank} キュラッサ
+   [5] {icon-material}{icon-body}{icon-rank} バンデッドメイル
+   [6] {icon-material}{icon-body}{icon-rank} リングメイル
+   [7] {icon-material}{icon-body}{icon-rank} チェインメイル
+   [8] {icon-material}{icon-body}{icon-rank} ブレストプレート
+   [9] {icon-material}{icon-body}{icon-rank} セグメンテータ
+  [10] {icon-material}{icon-body}{icon-rank} スケールアーマー
+  [11] {icon-material}{icon-body}{icon-rank} ブリガンダイン
+  [12] {icon-material}{icon-body}{icon-rank} プレイトメイル
+  [13] {icon-material}{icon-body}{icon-rank} フリュートメイル
+  [14] {icon-material}{icon-body}{icon-rank} ホプロンアーマー
+  [15] {icon-material}{icon-body}{icon-rank} ロゼンジアーマー
+  [16] {icon-material}{icon-body}{icon-rank} ドレッドアーマー
 }
 
 arms = { $rank ->
-  *[1] {$material}{icon-arms}{$rank} バンテージ
-   [2] {$material}{icon-arms}{$rank} レザーグローブ
-   [3] {$material}{icon-arms}{$rank} ジポングローブ
-   [4] {$material}{icon-arms}{$rank} キュイラッサー
-   [5] {$material}{icon-arms}{$rank} リングスリーブ
-   [6] {$material}{icon-arms}{$rank} チェインスリーブ
-   [7] {$material}{icon-arms}{$rank} ガントレット
-   [8] {$material}{icon-arms}{$rank} カラビニエール
-   [9] {$material}{icon-arms}{$rank} プレイトグローブ
-  [10] {$material}{icon-arms}{$rank} ロンダンス
-  [11] {$material}{icon-arms}{$rank} チルトグローブ
-  [12] {$material}{icon-arms}{$rank} フレイタニエル
-  [13] {$material}{icon-arms}{$rank} フリュートハンド
-  [14] {$material}{icon-arms}{$rank} ホプロングローブ
-  [15] {$material}{icon-arms}{$rank} ロゼンジグローブ
-  [16] {$material}{icon-arms}{$rank} ドレッドグローブ
+  *[1] {icon-material}{icon-arms}{icon-rank} バンテージ
+   [2] {icon-material}{icon-arms}{icon-rank} レザーグローブ
+   [3] {icon-material}{icon-arms}{icon-rank} ジポングローブ
+   [4] {icon-material}{icon-arms}{icon-rank} キュイラッサー
+   [5] {icon-material}{icon-arms}{icon-rank} リングスリーブ
+   [6] {icon-material}{icon-arms}{icon-rank} チェインスリーブ
+   [7] {icon-material}{icon-arms}{icon-rank} ガントレット
+   [8] {icon-material}{icon-arms}{icon-rank} カラビニエール
+   [9] {icon-material}{icon-arms}{icon-rank} プレイトグローブ
+  [10] {icon-material}{icon-arms}{icon-rank} ロンダンス
+  [11] {icon-material}{icon-arms}{icon-rank} チルトグローブ
+  [12] {icon-material}{icon-arms}{icon-rank} フレイタニエル
+  [13] {icon-material}{icon-arms}{icon-rank} フリュートハンド
+  [14] {icon-material}{icon-arms}{icon-rank} ホプロングローブ
+  [15] {icon-material}{icon-arms}{icon-rank} ロゼンジグローブ
+  [16] {icon-material}{icon-arms}{icon-rank} ドレッドグローブ
 }
 
 legs = { $rank ->
-  *[1] {$material}{icon-legs}{$rank} サンダル
-   [2] {$material}{icon-legs}{$rank} ブーツ
-   [3] {$material}{icon-legs}{$rank} ロングブーツ
-   [4] {$material}{icon-legs}{$rank} サイクゥイス
-   [5] {$material}{icon-legs}{$rank} ライトグリーブ
-   [6] {$material}{icon-legs}{$rank} リングレッグス
-   [7] {$material}{icon-legs}{$rank} チェインレッグス
-   [8] {$material}{icon-legs}{$rank} フースカンプ
-   [9] {$material}{icon-legs}{$rank} ポレインガード
-  [10] {$material}{icon-legs}{$rank} ジャムボウタイプ
-  [11] {$material}{icon-legs}{$rank} ミサグリアタイプ
-  [12] {$material}{icon-legs}{$rank} プレイトレッグス
-  [13] {$material}{icon-legs}{$rank} フリュートタイプ
-  [14] {$material}{icon-legs}{$rank} ホプロンレッグス
-  [15] {$material}{icon-legs}{$rank} ロゼンジレッグス
-  [16] {$material}{icon-legs}{$rank} ドレッドレッグス
+  *[1] {icon-material}{icon-legs}{icon-rank} サンダル
+   [2] {icon-material}{icon-legs}{icon-rank} ブーツ
+   [3] {icon-material}{icon-legs}{icon-rank} ロングブーツ
+   [4] {icon-material}{icon-legs}{icon-rank} サイクゥイス
+   [5] {icon-material}{icon-legs}{icon-rank} ライトグリーブ
+   [6] {icon-material}{icon-legs}{icon-rank} リングレッグス
+   [7] {icon-material}{icon-legs}{icon-rank} チェインレッグス
+   [8] {icon-material}{icon-legs}{icon-rank} フースカンプ
+   [9] {icon-material}{icon-legs}{icon-rank} ポレインガード
+  [10] {icon-material}{icon-legs}{icon-rank} ジャムボウタイプ
+  [11] {icon-material}{icon-legs}{icon-rank} ミサグリアタイプ
+  [12] {icon-material}{icon-legs}{icon-rank} プレイトレッグス
+  [13] {icon-material}{icon-legs}{icon-rank} フリュートタイプ
+  [14] {icon-material}{icon-legs}{icon-rank} ホプロンレッグス
+  [15] {icon-material}{icon-legs}{icon-rank} ロゼンジレッグス
+  [16] {icon-material}{icon-legs}{icon-rank} ドレッドレッグス
 }

@@ -175,7 +175,7 @@ Armor.prototype.render = function(card){
   let header_class;
   switch (this.material) {
     case "D":
-      header_class = "card-header text-white bg-warning";
+      header_class = "card-header bg-warning";
     break;
     case "S":
       header_class = "card-header bg-light";
