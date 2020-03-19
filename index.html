@@ -20,7 +20,12 @@
 <body>
 <template id="armor_card">
   <div class="card" style="max-width: 20rem;">
-    <div class="card-header text-white bg-primary"></div>
+    <div class="card-header text-white bg-primary">
+      <span class="card-title"></span>
+      <button type="button" class="close">
+        <span class="discard" aria-hidden="true">🕳️</span>
+      </button>
+    </div>
     <div class="card-body">
       <div class="card-text armor-stat">
         DP: <span class="armor-vdp"></span> (<span class="armor-dp"></span>) PP: <span class="armor-vpp"></span> (<span class="armor-pp"></span>)
@@ -111,7 +116,9 @@
       </form>
       <div id="slot1">
         <div class="card" style="max-width: 20rem;">
-          <div class="card-header text-white bg-primary"></div>
+          <div class="card-header text-white bg-primary">
+            <span class="card-title"></span>
+          </div>
           <div class="card-body">
             <div class="card-text armor-stat">
               DP: <span class="armor-vdp"></span> (<span class="armor-dp"></span>) PP: <span class="armor-vpp"></span> (<span class="armor-pp"></span>)
@@ -176,7 +183,9 @@
       </form>
       <div id="slot2">
         <div class="card" style="max-width: 20rem;">
-          <div class="card-header text-white bg-primary"></div>
+          <div class="card-header text-white bg-primary">
+            <span class="card-title"></span>
+          </div>
           <div class="card-body">
             <div class="card-text armor-stat">
               DP: <span class="armor-vdp"></span> (<span class="armor-dp"></span>) PP: <span class="armor-vpp"></span> (<span class="armor-pp"></span>)
@@ -191,13 +200,15 @@
     <div class="col">
       <h3 data-l10n-id="result"></h3>
       <button type="button" id="stock" class="btn btn-primary btn-sm" data-l10n-id="stock"></button>
-      <span id="type_rate" style="display:none;" data-l10n-id="type-rate"></span>
+      <span id="type_rate" style="display:none;"></span>
       <br>
       <button type="button" id="swap" class="btn btn-secondary btn-sm" data-l10n-id="swap"></button>
       <span id="result_can_changes" style="display:none;" data-l10n-id="result-can-changes"></span>
       <div id="fused">
         <div class="card" style="max-width: 20rem;">
-          <div class="card-header text-white bg-primary"></div>
+          <div class="card-header text-white bg-primary">
+            <span class="card-title"></span>
+          </div>
           <div class="card-body">
             <div class="card-text armor-stat">
               DP: <span class="armor-vdp"></span> (<span class="armor-dp"></span>) PP: <span class="armor-vpp"></span> (<span class="armor-pp"></span>)

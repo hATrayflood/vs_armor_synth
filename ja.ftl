@@ -17,6 +17,8 @@ before-combine      = 2つの素材を選択すると、ここに結果が表示
 rim-missmatch-error = 盾と他の防具は合成できません。
 result-can-changes  = スロット入れ替えで結果が変わります。
 show-detail-help    = 合成品の名前をダブルクリックすると、素材の累計を表示します。
+discard-confirm     = 廃棄します。本当によろしいですか？
+discard-parent-confirm = このアイテムを素材としたものがあります。本当によろしいですか？
 
 type-blunt    = 打撃
 type-edged    = 切断

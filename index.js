@@ -193,11 +193,11 @@ Armor.prototype.render = function(card){
       header_class = "card-header text-white bg-danger";
     break;
   }
+  card.querySelector(".card-header").setAttribute("class", header_class);
 
-  let header = card.querySelector(".card-header");
-  header.setAttribute("data-l10n-args", JSON.stringify({"material":this.material,"rank":this.rank}));
-  header.setAttribute("data-l10n-id", this.rim);
-  header.setAttribute("class", header_class);
+  let title = card.querySelector(".card-title");
+  title.setAttribute("data-l10n-args", JSON.stringify({"material":this.material,"rank":this.rank}));
+  title.setAttribute("data-l10n-id", this.rim);
 
   card.querySelector(".armor-vdp").textContent = this.visibleDp();
   card.querySelector(".armor-dp").textContent = this.dp;
@@ -216,10 +216,11 @@ function setCardDescription(card, l10nId){
   let root = card.querySelector(".card");
   root.removeAttribute("fused-id");
 
-  let header = card.querySelector(".card-header");
-  header.removeAttribute("data-l10n-args");
-  header.setAttribute("data-l10n-id", "not-selected");
-  header.setAttribute("class", "card-header text-white bg-primary");
+  card.querySelector(".card-header").setAttribute("class", "card-header text-white bg-primary");
+
+  let title = card.querySelector(".card-title");
+  title.removeAttribute("data-l10n-args");
+  title.setAttribute("data-l10n-id", "not-selected");
 
   let description = card.querySelector(".description");
   description.setAttribute("data-l10n-id", l10nId)
@@ -301,6 +302,7 @@ function setFuseResult(){
     [fused, rate, reverse] = synth(newArmor(select1), newArmor(select2));
     if(fused){
       fused.render(document.querySelector("#fused"));
+      document.querySelector("#type_rate").setAttribute("data-l10n-id", "type-rate");
       document.querySelector("#type_rate").setAttribute("data-l10n-args", JSON.stringify({"rate":rate}));
       document.querySelector("#type_rate").style.display = "inline";
       document.querySelector("#result_can_changes").style.display = reverse ? "inline" : "none";
@@ -310,6 +312,9 @@ function setFuseResult(){
       document.querySelector("#type_rate").style.display = "none";
       document.querySelector("#result_can_changes").style.display = "none";
     }
+  }
+  else{
+    fused = null;
   }
 }
 
@@ -347,8 +352,12 @@ function stock(){
   let card = document.importNode(document.querySelector("#armor_card").content, true)
   fused.render(card);
 
-  $(card.querySelector(".card-header")).dblclick(event => {
+  $(card.querySelector(".card-title")).dblclick(event => {
     showDetail($(event.target).parents(".card").attr("fused-id"));
+  });
+
+  $(card.querySelector("button.close")).click(event => {
+    discard($(event.target).parents(".card"));
   });
 
   $("#fusedstock").prepend(card);
@@ -378,6 +387,24 @@ function showDetail(id){
   });
 
   $("#detail_modal").modal();
+}
+
+async function discard(card){
+  const id = card.attr("fused-id");
+  const index = fusedStock.findIndex(a => a.id == id);
+  if(index < 0) return;
+
+  if(confirm(await document.l10n.formatValue("discard-confirm"))){
+    const parent1 = fusedStock.findIndex(a => a.parent1 == id);
+    const parent2 = fusedStock.findIndex(a => a.parent2 == id);
+    if((parent1 < 0 && parent2 < 0) || confirm(await document.l10n.formatValue("discard-parent-confirm"))){
+      fusedStock.splice(index, 1);
+      card.remove();
+      sourcesChange(1);
+      sourcesChange(2);
+      setFuseResult();
+    }
+  }
 }
 
 async function init(){

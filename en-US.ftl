@@ -17,6 +17,8 @@ before-combine      = Select two Sources, then result displays here.
 rim-missmatch-error = Shield and other rim combination is not available.
 result-can-changes  = Swap Slot to change result.
 show-detail-help    = Double click Fused item name to show total sources to fused.
+discard-confirm     = Do you want to discard this ?
+discard-parent-confirm = Some items are fused from this. Are you sure ?
 
 type-blunt    = Blunt
 type-edged    = Edged
