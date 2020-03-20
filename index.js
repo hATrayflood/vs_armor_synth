@@ -52,6 +52,26 @@ Armor.prototype.maxTypes = function(){
     return types;
 };
 
+function fromJson(json){
+    let armor      = new Armor();
+    armor.id       = json.id;
+    armor.material = json.material;
+    armor.rim      = json.rim;
+    armor.rank     = json.rank;
+
+    armor.dp       = json.dp;
+    armor.pp       = json.pp;
+    armor.blunt    = json.blunt;
+    armor.edged    = json.edged;
+    armor.piercing = json.piercing;
+
+    armor.parent1  = json.parent1;
+    armor.parent2  = json.parent2;
+    armor.sources  = json.sources;
+
+    return armor;
+};
+
 function newArmor(id){
     let fused = fusedStock.find(a => a.id == id);
     if(fused) return fused;
@@ -345,7 +365,7 @@ function swap(){
   setFuseResult();
 }
 
-function stock(){
+function stock(fused){
   if(!fused) return;
 
   fusedStock.unshift(fused);
@@ -361,7 +381,6 @@ function stock(){
   });
 
   $("#fusedstock").prepend(card);
-  fused = null;
 
   sourcesChange(1);
   $("#select1").val("");
@@ -407,6 +426,36 @@ async function discard(card){
   }
 }
 
+function exportJson(){
+  if(!fusedStock.length) return;
+
+  let link = document.createElement("a");
+  link.href = URL.createObjectURL(new Blob([JSON.stringify(fusedStock)], {type: 'application\/json'}));
+  link.download = "exported.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
+function importJson(){
+  let file = document.createElement("input");
+  file.type = "file";
+  $(file).change(event => {
+    let reader = new FileReader();
+    reader.onload = async function(event){
+      try{
+        JSON.parse(event.target.result).reverse().forEach(data => {
+          stock(fromJson(data))
+        });
+      }
+      catch(e){
+        alert(await document.l10n.formatValue("import-error"));
+      }
+    };
+    reader.readAsText(event.target.files[0]);
+  });
+  file.click();
+}
+
 async function init(){
   setCardDescription(document.querySelector("#slot1"), "select-source");
   setCardDescription(document.querySelector("#slot2"), "select-source");
@@ -435,8 +484,15 @@ async function init(){
     setFuseResult();
   });
 
-  $("#stock").click(() => stock());
+  $("#stock").click(() => stock(fused));
   $("#swap").click(() => swap());
+
+  $("#export").click(() => {
+    exportJson();
+  });
+  $("#import").click(() => {
+    importJson();
+  });
 }
 
 $(function(){

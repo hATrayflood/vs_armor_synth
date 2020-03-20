@@ -7,6 +7,8 @@ chest  = 箱
 result = 結果
 stock  = 保管
 swap   = 入替
+export = 書き出し
+import = 読み込み
 type-rate      = type値倍率: {$rate}
 detail-sources = 累計素材
 fusedstock     = 合成品倉庫
@@ -19,6 +21,7 @@ result-can-changes  = スロット入れ替えで結果が変わります。
 show-detail-help    = 合成品の名前をダブルクリックすると、素材の累計を表示します。
 discard-confirm     = 廃棄します。本当によろしいですか？
 discard-parent-confirm = このアイテムを素材としたものがあります。本当によろしいですか？
+import-error        = 読み込めません。不正なデータです。
 
 type-blunt    = 打撃
 type-edged    = 切断
