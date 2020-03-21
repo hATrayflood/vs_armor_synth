@@ -456,6 +456,18 @@ function importJson(){
   file.click();
 }
 
+async function discardAll(){
+  if(!fusedStock.length) return;
+
+  if(confirm(await document.l10n.formatValue("discard-confirm"))){
+    fusedStock.splice(0, fusedStock.length);
+    $("#fusedstock").empty();
+    sourcesChange(1);
+    sourcesChange(2);
+    setFuseResult();
+  }
+}
+
 async function init(){
   setCardDescription(document.querySelector("#slot1"), "select-source");
   setCardDescription(document.querySelector("#slot2"), "select-source");
@@ -487,12 +499,9 @@ async function init(){
   $("#stock").click(() => stock(fused));
   $("#swap").click(() => swap());
 
-  $("#export").click(() => {
-    exportJson();
-  });
-  $("#import").click(() => {
-    importJson();
-  });
+  $("#export").click(() => exportJson());
+  $("#import").click(() => importJson());
+  $("#discard_all").click(() => discardAll());
 }
 
 $(function(){

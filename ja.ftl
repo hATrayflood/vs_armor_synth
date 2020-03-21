@@ -9,6 +9,7 @@ stock  = 保管
 swap   = 入替
 export = 書き出し
 import = 読み込み
+discard-all    = 全廃棄
 type-rate      = type値倍率: {$rate}
 detail-sources = 累計素材
 fusedstock     = 合成品倉庫

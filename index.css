@@ -10,3 +10,7 @@ footer {
 .discard {
   font-size: 66%;
 }
+
+.card-header > button.close {
+  margin-left: .5rem;
+}

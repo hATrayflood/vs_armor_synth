@@ -9,6 +9,7 @@ stock  = Stock
 swap   = Swap
 export = Export
 import = Import
+discard-all    = Discard all
 type-rate      = Type rate: {$rate}
 detail-sources = Total Sources
 fusedstock     = Fused item stock
