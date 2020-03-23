@@ -19,7 +19,7 @@
 </head>
 <body>
 <template id="armor_card">
-  <div class="card" style="max-width: 20rem;">
+  <div class="card">
     <div class="card-header text-white bg-primary">
       <span class="card-title"></span>
       <button type="button" class="close">
@@ -115,7 +115,7 @@
         </div>
       </form>
       <div id="slot1">
-        <div class="card" style="max-width: 20rem;">
+        <div class="card">
           <div class="card-header text-white bg-primary">
             <span class="card-title"></span>
           </div>
@@ -124,6 +124,14 @@
               DP: <span class="armor-vdp"></span> (<span class="armor-dp"></span>) PP: <span class="armor-vpp"></span> (<span class="armor-pp"></span>)
               <br>
               <span data-l10n-id="type-blunt"></span>: <span class="armor-blunt"></span> <span data-l10n-id="type-edged"></span>: <span class="armor-edged"></span> <span data-l10n-id="type-piercing"></span>: <span class="armor-piercing"></span>
+              <br>
+              <table class="table">
+                <tbody>
+                  <tr><td data-l10n-id="type-rate"></td><td colspan="2" align="center" data-l10n-id="type-reduction"></td><td colspan="2" align="center" data-l10n-id="type-convergence"></td></tr>
+                  <tr><td>0.8</td><td align="right">max <span class="armor-type-reduction-8-max"></span></td><td align="right">min <span class="armor-type-reduction-8-min"></span></td><td align="right">max <span class="armor-type-convergence-8-max"></span></td><td align="right">min <span class="armor-type-convergence-8-min"></span></td></tr>
+                  <tr><td>0.6</td><td align="right">max <span class="armor-type-reduction-6-max"></span></td><td align="right">min <span class="armor-type-reduction-6-min"></span></td><td align="right">max <span class="armor-type-convergence-6-max"></span></td><td align="right">min <span class="armor-type-convergence-6-min"></span></td></tr>
+                </tbody>
+              </table>
             </div>
             <div class="card-text description"></div>
           </div>
@@ -182,7 +190,7 @@
         </div>
       </form>
       <div id="slot2">
-        <div class="card" style="max-width: 20rem;">
+        <div class="card">
           <div class="card-header text-white bg-primary">
             <span class="card-title"></span>
           </div>
@@ -191,6 +199,14 @@
               DP: <span class="armor-vdp"></span> (<span class="armor-dp"></span>) PP: <span class="armor-vpp"></span> (<span class="armor-pp"></span>)
               <br>
               <span data-l10n-id="type-blunt"></span>: <span class="armor-blunt"></span> <span data-l10n-id="type-edged"></span>: <span class="armor-edged"></span> <span data-l10n-id="type-piercing"></span>: <span class="armor-piercing"></span>
+              <br>
+              <table class="table">
+                <tbody>
+                  <tr><td data-l10n-id="type-rate"></td><td colspan="2" align="center" data-l10n-id="type-reduction"></td><td colspan="2" align="center" data-l10n-id="type-convergence"></td></tr>
+                  <tr><td>0.8</td><td align="right">max <span class="armor-type-reduction-8-max"></span></td><td align="right">min <span class="armor-type-reduction-8-min"></span></td><td align="right">max <span class="armor-type-convergence-8-max"></span></td><td align="right">min <span class="armor-type-convergence-8-min"></span></td></tr>
+                  <tr><td>0.6</td><td align="right">max <span class="armor-type-reduction-6-max"></span></td><td align="right">min <span class="armor-type-reduction-6-min"></span></td><td align="right">max <span class="armor-type-convergence-6-max"></span></td><td align="right">min <span class="armor-type-convergence-6-min"></span></td></tr>
+                </tbody>
+              </table>
             </div>
             <div class="card-text description"></div>
           </div>
@@ -200,12 +216,12 @@
     <div class="col">
       <h3 data-l10n-id="result"></h3>
       <button type="button" id="stock" class="btn btn-primary btn-sm" data-l10n-id="stock"></button>
-      <span id="type_rate" style="display:none;"></span>
+      <span id="combine_info" style="display:none;"></span>
       <br>
       <button type="button" id="swap" class="btn btn-secondary btn-sm" data-l10n-id="swap"></button>
       <span id="result_can_changes" style="display:none;" data-l10n-id="result-can-changes"></span>
       <div id="fused">
-        <div class="card" style="max-width: 20rem;">
+        <div class="card">
           <div class="card-header text-white bg-primary">
             <span class="card-title"></span>
           </div>
@@ -214,6 +230,14 @@
               DP: <span class="armor-vdp"></span> (<span class="armor-dp"></span>) PP: <span class="armor-vpp"></span> (<span class="armor-pp"></span>)
               <br>
               <span data-l10n-id="type-blunt"></span>: <span class="armor-blunt"></span> <span data-l10n-id="type-edged"></span>: <span class="armor-edged"></span> <span data-l10n-id="type-piercing"></span>: <span class="armor-piercing"></span>
+              <br>
+              <table class="table">
+                <tbody>
+                  <tr><td data-l10n-id="type-rate"></td><td colspan="2" align="center" data-l10n-id="type-reduction"></td><td colspan="2" align="center" data-l10n-id="type-convergence"></td></tr>
+                  <tr><td>0.8</td><td align="right">max <span class="armor-type-reduction-8-max"></span></td><td align="right">min <span class="armor-type-reduction-8-min"></span></td><td align="right">max <span class="armor-type-convergence-8-max"></span></td><td align="right">min <span class="armor-type-convergence-8-min"></span></td></tr>
+                  <tr><td>0.6</td><td align="right">max <span class="armor-type-reduction-6-max"></span></td><td align="right">min <span class="armor-type-reduction-6-min"></span></td><td align="right">max <span class="armor-type-convergence-6-max"></span></td><td align="right">min <span class="armor-type-convergence-6-min"></span></td></tr>
+                </tbody>
+              </table>
             </div>
             <div class="card-text description"></div>
           </div>

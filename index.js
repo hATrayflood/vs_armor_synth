@@ -52,6 +52,23 @@ Armor.prototype.maxTypes = function(){
     return types;
 };
 
+Armor.prototype.typePredictions = function(){
+    const maxType = Math.max(this.blunt, this.edged, this.piercing);
+    const minType = Math.min(this.blunt, this.edged, this.piercing);
+
+    let predictions = {"convergence":{}, "reduction":{}};
+    [0.8, 0.6].forEach(rate => {
+        predictions["reduction"][rate] = {};
+        predictions["reduction"][rate]["max"] = Math.min(Math.floor(rate * maxType), 100);
+        predictions["reduction"][rate]["min"] = Math.min(Math.floor(rate * minType), 100);
+        predictions["convergence"][rate] = {};
+        predictions["convergence"][rate]["max"] = Math.max(Math.min(Math.floor(rate * 10 / (10 - rate * 10) * maxType)                  , 100),   0);
+        predictions["convergence"][rate]["min"] = Math.max(Math.min(Math.floor(rate * 10 / (10 - rate * 10) * minType) - (rate * 10 - 4), 100),   0);
+    });
+
+    return predictions;
+};
+
 function fromJson(json){
     let armor      = new Armor();
     armor.id       = json.id;
@@ -84,7 +101,7 @@ function newArmor(id){
     armor.id       = id;
     armor.material = material;
     armor.rim      = rim;
-    armor.rank     = parseInt(rank);
+    armor.rank     = Number.parseInt(rank);
 
     armor.dp       = armorBaseParam.dp + materialBaseParam.dp;
     armor.pp       = armorBaseParam.pp;
@@ -115,7 +132,7 @@ function synth(parent1, parent2){
     synthed.id       = newId();
     synthed.material = material;
     synthed.rim      = rim;
-    synthed.rank     = parseInt(rank);
+    synthed.rank     = Number.parseInt(rank);
 
     synthed.dp       = Math.floor((parent1.dp + parent2.dp) / 2);
     synthed.pp       = Math.floor((parent1.pp + parent2.pp) / 2);
@@ -228,6 +245,16 @@ Armor.prototype.render = function(card){
   card.querySelector(".armor-edged").textContent = this.edged;
   card.querySelector(".armor-piercing").textContent = this.piercing;
 
+  const predictions = this.typePredictions();
+  (card.querySelector(".armor-type-reduction-8-max")   || {}).textContent = predictions["reduction"][0.8]["max"];
+  (card.querySelector(".armor-type-reduction-8-min")   || {}).textContent = predictions["reduction"][0.8]["min"];
+  (card.querySelector(".armor-type-reduction-6-max")   || {}).textContent = predictions["reduction"][0.6]["max"];
+  (card.querySelector(".armor-type-reduction-6-min")   || {}).textContent = predictions["reduction"][0.6]["min"];
+  (card.querySelector(".armor-type-convergence-8-max") || {}).textContent = predictions["convergence"][0.8]["max"];
+  (card.querySelector(".armor-type-convergence-8-min") || {}).textContent = predictions["convergence"][0.8]["min"];
+  (card.querySelector(".armor-type-convergence-6-max") || {}).textContent = predictions["convergence"][0.6]["max"];
+  (card.querySelector(".armor-type-convergence-6-min") || {}).textContent = predictions["convergence"][0.6]["min"];
+
   card.querySelector(".description").style.display = "none";
   card.querySelector(".armor-stat").style.display = "block";
 }
@@ -309,7 +336,7 @@ function selectChange(slot){
   else{
     setCardDescription(document.querySelector(`#slot${slot}`), "select-source");
     setCardDescription(document.querySelector("#fused"), "before-combine");
-    document.querySelector("#type_rate").style.display = "none";
+    document.querySelector("#combine_info").style.display = "none";
     document.querySelector("#result_can_changes").style.display = "none";
   }
 }
@@ -318,24 +345,42 @@ function setFuseResult(){
   const select1 = $("#select1").val();
   const select2 = $("#select2").val();
   if(select1 && select2){
+    const armor1 = newArmor(select1);
+    const armor2 = newArmor(select2);
     let rate, reverse;
-    [fused, rate, reverse] = synth(newArmor(select1), newArmor(select2));
+    [fused, rate, reverse] = synth(armor1, armor2);
     if(fused){
       fused.render(document.querySelector("#fused"));
-      document.querySelector("#type_rate").setAttribute("data-l10n-id", "type-rate");
-      document.querySelector("#type_rate").setAttribute("data-l10n-args", JSON.stringify({"rate":rate}));
-      document.querySelector("#type_rate").style.display = "inline";
+
+      const dp = Math.max(armor1.dp, armor2.dp);
+      document.querySelector("#combine_info").setAttribute("data-l10n-id", "combine-info");
+      document.querySelector("#combine_info").setAttribute("data-l10n-args", JSON.stringify({"rate":rate, "dp":Math.ceil(dp / 100), "times":maxDpCount(fused.dp, dp)}));
+      document.querySelector("#combine_info").style.display = "inline";
       document.querySelector("#result_can_changes").style.display = reverse ? "inline" : "none";
     }
     else{
       setCardDescription(document.querySelector("#fused"), "rim-missmatch-error");
-      document.querySelector("#type_rate").style.display = "none";
+      document.querySelector("#combine_info").style.display = "none";
       document.querySelector("#result_can_changes").style.display = "none";
     }
   }
   else{
     fused = null;
   }
+}
+
+function maxDpCount(dp, max){
+  const realMax = Math.ceil(max / 100) * 100 - 99;
+  let nowDp = dp;
+  let count = 0;
+  const recursion = function(){
+    if(nowDp >= realMax || count > 9) return;
+    nowDp = Math.floor((nowDp + max) / 2);
+    count++;
+    recursion();
+  };
+  recursion();
+  return count;
 }
 
 function swap(){
@@ -366,7 +411,7 @@ function swap(){
 }
 
 function stock(fused){
-  if(!fused) return;
+  if(!fused || fusedStock.findIndex(a => a.id == fused.id) > -1) return;
 
   fusedStock.unshift(fused);
   let card = document.importNode(document.querySelector("#armor_card").content, true)
@@ -402,7 +447,7 @@ function showDetail(id){
   $("#detail_modal_sources").empty();
   Object.entries(armor.sources).forEach(([key, value]) => {
     let [material, rim, rank] = key.split("-");
-    $("#detail_modal_sources").append($(`<tr><td data-l10n-id='${rim}' data-l10n-args='${JSON.stringify({"material":material,"rank":parseInt(rank)})}'></td><td>${value}</td></tr>`));
+    $("#detail_modal_sources").append($(`<tr><td data-l10n-id='${rim}' data-l10n-args='${JSON.stringify({"material":material,"rank":Number.parseInt(rank)})}'></td><td>${value}</td></tr>`));
   });
 
   $("#detail_modal").modal();

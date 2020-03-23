@@ -14,3 +14,18 @@ footer {
 .card-header > button.close {
   margin-left: .5rem;
 }
+
+.card-text.description {
+  min-height: 7.9rem;
+}
+
+.card-text.armor-stat > .table {
+  width: auto;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+.card-text.armor-stat > .table td {
+  padding-top: 0;
+  padding-bottom: 0;
+}
