@@ -444,11 +444,27 @@ function showDetail(id){
   title.setAttribute("data-l10n-args", JSON.stringify({"material":armor.material,"rank":armor.rank}));
   title.setAttribute("data-l10n-id", armor.rim);
 
+  armor.render(document.querySelector("#detail"));
+  newArmor(armor.parent1).render(document.querySelector("#parent1"));
+  newArmor(armor.parent2).render(document.querySelector("#parent2"));
+
+  const columns = 2;
+  let sourceBuffer = [];
   $("#detail_modal_sources").empty();
-  Object.entries(armor.sources).forEach(([key, value]) => {
+  Object.entries(armor.sources).forEach(([key, value], index) => {
     let [material, rim, rank] = key.split("-");
-    $("#detail_modal_sources").append($(`<tr><td data-l10n-id='${rim}' data-l10n-args='${JSON.stringify({"material":material,"rank":Number.parseInt(rank)})}'></td><td>${value}</td></tr>`));
+    sourceBuffer.push(`<td data-l10n-id='${rim}' data-l10n-args='${JSON.stringify({"material":material,"rank":Number.parseInt(rank)})}'></td><td>${value}</td>`);
+    if(sourceBuffer.length >= columns){
+      $("#detail_modal_sources").append($(`<tr>${sourceBuffer.join("")}</tr>`));
+      sourceBuffer.splice(0, sourceBuffer.length);
+    }
   });
+  if(sourceBuffer.length){
+    for(let i = sourceBuffer.length; i < columns; i++){
+      sourceBuffer.push(`<td></td><td></td>`);
+    }
+    $("#detail_modal_sources").append($(`<tr>${sourceBuffer.join("")}</tr>`));
+  }
 
   $("#detail_modal").modal();
 }

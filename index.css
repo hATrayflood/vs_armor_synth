@@ -29,3 +29,11 @@ footer {
   padding-top: 0;
   padding-bottom: 0;
 }
+
+#detail {
+  justify-content: center;
+}
+
+footer {
+  padding-bottom: 15px;
+}

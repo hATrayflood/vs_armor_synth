@@ -13,6 +13,7 @@ discard-all    = 全廃棄
 detail-sources = 累計素材
 fusedstock     = 合成品倉庫
 references     = 参考文献
+recommended    = 推奨
 not-selected   = 未選択
 type-rate      = type値倍率
 combine-info   = {type-rate}: {$rate}, DP {$dp} まであと {$times} 回

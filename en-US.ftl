@@ -13,6 +13,7 @@ discard-all    = Discard all
 detail-sources = Total Sources
 fusedstock     = Fused item stock
 references     = References
+recommended    = Recommended
 not-selected   = Not selected
 type-rate      = Type rate
 combine-info   = {type-rate}: {$rate}, {$times} times to DP {$dp}
