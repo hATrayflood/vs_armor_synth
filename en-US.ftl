@@ -42,6 +42,7 @@ icon-head   = ⛑️
 icon-body   = 🧥
 icon-arms   = 🧤
 icon-legs   = 🥾
+icon-blade  = ⚔️
 
 icon-material = { $material ->
   *[W] 🅆
@@ -165,4 +166,124 @@ legs = { $rank ->
   [14] {icon-material}{icon-legs}{icon-rank} Hoplite Leggings
   [15] {icon-material}{icon-legs}{icon-rank} Jazeraint Leggings
   [16] {icon-material}{icon-legs}{icon-rank} Dread Leggings
+}
+
+dagger = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Battle Knife
+   [2] {icon-material}{icon-blade}{icon-rank} Scramasax
+   [3] {icon-material}{icon-blade}{icon-rank} Dirk
+   [4] {icon-material}{icon-blade}{icon-rank} Throwing Knife
+   [5] {icon-material}{icon-blade}{icon-rank} Kudi
+   [6] {icon-material}{icon-blade}{icon-rank} Cinquedea
+   [7] {icon-material}{icon-blade}{icon-rank} Kris
+   [8] {icon-material}{icon-blade}{icon-rank} Hatchet
+   [9] {icon-material}{icon-blade}{icon-rank} Khukuri
+  [10] {icon-material}{icon-blade}{icon-rank} Baselard
+  [11] {icon-material}{icon-blade}{icon-rank} Stiletto
+  [12] {icon-material}{icon-blade}{icon-rank} Jamadhar
+}
+
+sword = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Spatha
+   [2] {icon-material}{icon-blade}{icon-rank} Scimitar
+   [3] {icon-material}{icon-blade}{icon-rank} Rapier
+   [4] {icon-material}{icon-blade}{icon-rank} Short Sword
+   [5] {icon-material}{icon-blade}{icon-rank} Firangi
+   [6] {icon-material}{icon-blade}{icon-rank} Shamshir
+   [7] {icon-material}{icon-blade}{icon-rank} Falchion
+   [8] {icon-material}{icon-blade}{icon-rank} Shotel
+   [9] {icon-material}{icon-blade}{icon-rank} Khora
+  [10] {icon-material}{icon-blade}{icon-rank} Khopesh
+  [11] {icon-material}{icon-blade}{icon-rank} Wakizashi
+  [12] {icon-material}{icon-blade}{icon-rank} Rhomphaia
+}
+
+sword2h = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Broad Sword
+   [2] {icon-material}{icon-blade}{icon-rank} Norse Sword
+   [3] {icon-material}{icon-blade}{icon-rank} Katana
+   [4] {icon-material}{icon-blade}{icon-rank} Executioner
+   [5] {icon-material}{icon-blade}{icon-rank} Claymore
+   [6] {icon-material}{icon-blade}{icon-rank} Schiavona
+   [7] {icon-material}{icon-blade}{icon-rank} Bastard Sword
+   [8] {icon-material}{icon-blade}{icon-rank} Nodachi
+   [9] {icon-material}{icon-blade}{icon-rank} Rune Blade
+  [10] {icon-material}{icon-blade}{icon-rank} Holy Win
+}
+
+axe = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Hand Axe
+   [2] {icon-material}{icon-blade}{icon-rank} Battle Axe
+   [3] {icon-material}{icon-blade}{icon-rank} Francisca
+   [4] {icon-material}{icon-blade}{icon-rank} Tabarzin
+   [5] {icon-material}{icon-blade}{icon-rank} Chamkaq
+   [6] {icon-material}{icon-blade}{icon-rank} Tabar
+   [7] {icon-material}{icon-blade}{icon-rank} Bullova
+   [8] {icon-material}{icon-blade}{icon-rank} Crescent
+}
+
+mace = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Goblin Club
+   [2] {icon-material}{icon-blade}{icon-rank} Spiked Club
+   [3] {icon-material}{icon-blade}{icon-rank} Ball Mace
+   [4] {icon-material}{icon-blade}{icon-rank} Footman's Mace 1H
+   [5] {icon-material}{icon-blade}{icon-rank} Morning Star
+   [6] {icon-material}{icon-blade}{icon-rank} War Hammer
+   [7] {icon-material}{icon-blade}{icon-rank} Bec de Corbin
+   [8] {icon-material}{icon-blade}{icon-rank} War Maul
+}
+
+axe2h = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Guisarme
+   [2] {icon-material}{icon-blade}{icon-rank} Large Crescent
+   [3] {icon-material}{icon-blade}{icon-rank} Sabre Halberd
+   [4] {icon-material}{icon-blade}{icon-rank} Balbriggan
+   [5] {icon-material}{icon-blade}{icon-rank} Double Blade
+   [6] {icon-material}{icon-blade}{icon-rank} Halberd
+}
+
+staff = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Wizard Staff
+   [2] {icon-material}{icon-blade}{icon-rank} Clergy Rod
+   [3] {icon-material}{icon-blade}{icon-rank} Summoner Baton
+   [4] {icon-material}{icon-blade}{icon-rank} Shamanic Staff
+   [5] {icon-material}{icon-blade}{icon-rank} Bishop's Crosier
+   [6] {icon-material}{icon-blade}{icon-rank} Sage's Cane
+}
+
+mace2h = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Langdebeve
+   [2] {icon-material}{icon-blade}{icon-rank} Sabre Mace
+   [3] {icon-material}{icon-blade}{icon-rank} Footman's Mace 2H
+   [4] {icon-material}{icon-blade}{icon-rank} Gloomwing
+   [5] {icon-material}{icon-blade}{icon-rank} Mjolnir
+   [6] {icon-material}{icon-blade}{icon-rank} Griever
+   [7] {icon-material}{icon-blade}{icon-rank} Destroyer
+   [8] {icon-material}{icon-blade}{icon-rank} Hand of Light
+}
+
+spear = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Spear
+   [2] {icon-material}{icon-blade}{icon-rank} Glaive
+   [3] {icon-material}{icon-blade}{icon-rank} Scorpion
+   [4] {icon-material}{icon-blade}{icon-rank} Corcesca
+   [5] {icon-material}{icon-blade}{icon-rank} Trident
+   [6] {icon-material}{icon-blade}{icon-rank} Awl Pike
+   [7] {icon-material}{icon-blade}{icon-rank} Boar Spear
+   [8] {icon-material}{icon-blade}{icon-rank} Fauchard
+   [9] {icon-material}{icon-blade}{icon-rank} Voulge
+  [10] {icon-material}{icon-blade}{icon-rank} Pole Axe
+  [11] {icon-material}{icon-blade}{icon-rank} Bardysh
+  [12] {icon-material}{icon-blade}{icon-rank} Brandestoc
+}
+
+crossbow = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} Gastraph Bow
+   [2] {icon-material}{icon-blade}{icon-rank} Light Crossbow
+   [3] {icon-material}{icon-blade}{icon-rank} Target Bow
+   [4] {icon-material}{icon-blade}{icon-rank} Windlass
+   [5] {icon-material}{icon-blade}{icon-rank} Cranequin
+   [6] {icon-material}{icon-blade}{icon-rank} Lug Crossbow
+   [7] {icon-material}{icon-blade}{icon-rank} Siege Bow
+   [8] {icon-material}{icon-blade}{icon-rank} Arbalest
 }

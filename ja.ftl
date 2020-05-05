@@ -42,6 +42,7 @@ icon-head   = ⛑️
 icon-body   = 🧥
 icon-arms   = 🧤
 icon-legs   = 🥾
+icon-blade  = ⚔️
 
 icon-material = { $material ->
   *[W] 🅆
@@ -165,4 +166,124 @@ legs = { $rank ->
   [14] {icon-material}{icon-legs}{icon-rank} ホプロンレッグス
   [15] {icon-material}{icon-legs}{icon-rank} ロゼンジレッグス
   [16] {icon-material}{icon-legs}{icon-rank} ドレッドレッグス
+}
+
+dagger = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} バトルナイフ
+   [2] {icon-material}{icon-blade}{icon-rank} スクラマサクス
+   [3] {icon-material}{icon-blade}{icon-rank} ダーク
+   [4] {icon-material}{icon-blade}{icon-rank} キドニーダガー
+   [5] {icon-material}{icon-blade}{icon-rank} ペシュカド
+   [6] {icon-material}{icon-blade}{icon-rank} チンクエディア
+   [7] {icon-material}{icon-blade}{icon-rank} クリス
+   [8] {icon-material}{icon-blade}{icon-rank} ハットチェット
+   [9] {icon-material}{icon-blade}{icon-rank} ククリ
+  [10] {icon-material}{icon-blade}{icon-rank} バゼラード
+  [11] {icon-material}{icon-blade}{icon-rank} スティレット
+  [12] {icon-material}{icon-blade}{icon-rank} ジャマダハル
+}
+
+sword = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} スパタ
+   [2] {icon-material}{icon-blade}{icon-rank} グラディウス
+   [3] {icon-material}{icon-blade}{icon-rank} レイピア
+   [4] {icon-material}{icon-blade}{icon-rank} ショートソード
+   [5] {icon-material}{icon-blade}{icon-rank} フィランギ
+   [6] {icon-material}{icon-blade}{icon-rank} シャムシール
+   [7] {icon-material}{icon-blade}{icon-rank} ファルシオン
+   [8] {icon-material}{icon-blade}{icon-rank} ショテル
+   [9] {icon-material}{icon-blade}{icon-rank} コラ
+  [10] {icon-material}{icon-blade}{icon-rank} コピス
+  [11] {icon-material}{icon-blade}{icon-rank} サムライブレード
+  [12] {icon-material}{icon-blade}{icon-rank} ロンパイア
+}
+
+sword2h = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} ブロードソード
+   [2] {icon-material}{icon-blade}{icon-rank} バイキングソード
+   [3] {icon-material}{icon-blade}{icon-rank} カタナ
+   [4] {icon-material}{icon-blade}{icon-rank} ワルーンソード
+   [5] {icon-material}{icon-blade}{icon-rank} クレイモアー
+   [6] {icon-material}{icon-blade}{icon-rank} スキアヴォーナ
+   [7] {icon-material}{icon-blade}{icon-rank} バスタードソード
+   [8] {icon-material}{icon-blade}{icon-rank} ファルクス
+   [9] {icon-material}{icon-blade}{icon-rank} ルーンブレード
+  [10] {icon-material}{icon-blade}{icon-rank} ホーリーウィン
+}
+
+axe = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} ハンドアックス
+   [2] {icon-material}{icon-blade}{icon-rank} バトルアックス
+   [3] {icon-material}{icon-blade}{icon-rank} フランキスカ
+   [4] {icon-material}{icon-blade}{icon-rank} タバルジン
+   [5] {icon-material}{icon-blade}{icon-rank} チャクマク
+   [6] {icon-material}{icon-blade}{icon-rank} タバール
+   [7] {icon-material}{icon-blade}{icon-rank} ブローバー
+   [8] {icon-material}{icon-blade}{icon-rank} クレセント
+}
+
+mace = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} ゴブリンクラブ
+   [2] {icon-material}{icon-blade}{icon-rank} スパイクドクラブ
+   [3] {icon-material}{icon-blade}{icon-rank} オニオンシェイプ
+   [4] {icon-material}{icon-blade}{icon-rank} スモールスパイク
+   [5] {icon-material}{icon-blade}{icon-rank} モーニングスター
+   [6] {icon-material}{icon-blade}{icon-rank} ウォーハンマー
+   [7] {icon-material}{icon-blade}{icon-rank} ビッグハンマー
+   [8] {icon-material}{icon-blade}{icon-rank} ブルメイス
+}
+
+axe2h = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} ギサルメアックス
+   [2] {icon-material}{icon-blade}{icon-rank} ラージクレセント
+   [3] {icon-material}{icon-blade}{icon-rank} バンパーブレード
+   [4] {icon-material}{icon-blade}{icon-rank} バルブリガン
+   [5] {icon-material}{icon-blade}{icon-rank} ダブルブレード
+   [6] {icon-material}{icon-blade}{icon-rank} ハルベルト
+}
+
+staff = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} ウィザードタイプ
+   [2] {icon-material}{icon-blade}{icon-rank} クレリックタイプ
+   [3] {icon-material}{icon-blade}{icon-rank} サモナータイプ
+   [4] {icon-material}{icon-blade}{icon-rank} シャーマンタイプ
+   [5] {icon-material}{icon-blade}{icon-rank} ビショップタイプ
+   [6] {icon-material}{icon-blade}{icon-rank} ワイズマンタイプ
+}
+
+mace2h = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} ランデヴェバ
+   [2] {icon-material}{icon-blade}{icon-rank} カッツバルゲル
+   [3] {icon-material}{icon-blade}{icon-rank} スパイクドモール
+   [4] {icon-material}{icon-blade}{icon-rank} グルームウイング
+   [5] {icon-material}{icon-blade}{icon-rank} ミョルニール
+   [6] {icon-material}{icon-blade}{icon-rank} ファランクス
+   [7] {icon-material}{icon-blade}{icon-rank} デストロイヤー
+   [8] {icon-material}{icon-blade}{icon-rank} ブラッディメイス
+}
+
+spear = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} ロングスピア
+   [2] {icon-material}{icon-blade}{icon-rank} グレイブ
+   [3] {icon-material}{icon-blade}{icon-rank} スコーピオン
+   [4] {icon-material}{icon-blade}{icon-rank} コルセスカ
+   [5] {icon-material}{icon-blade}{icon-rank} トライデント
+   [6] {icon-material}{icon-blade}{icon-rank} オウルパイク
+   [7] {icon-material}{icon-blade}{icon-rank} ボアスピア
+   [8] {icon-material}{icon-blade}{icon-rank} フォチャード
+   [9] {icon-material}{icon-blade}{icon-rank} ヴォウジェ
+  [10] {icon-material}{icon-blade}{icon-rank} ポールアックス
+  [11] {icon-material}{icon-blade}{icon-rank} バルディッシュ
+  [12] {icon-material}{icon-blade}{icon-rank} パルチザン
+}
+
+crossbow = { $rank ->
+  *[1] {icon-material}{icon-blade}{icon-rank} ガストラルボウ
+   [2] {icon-material}{icon-blade}{icon-rank} ライトクロスボウ
+   [3] {icon-material}{icon-blade}{icon-rank} ターゲットボウ
+   [4] {icon-material}{icon-blade}{icon-rank} ウィンドラスボウ
+   [5] {icon-material}{icon-blade}{icon-rank} クレインクイン
+   [6] {icon-material}{icon-blade}{icon-rank} ラッグクロスボウ
+   [7] {icon-material}{icon-blade}{icon-rank} ストーンバスター
+   [8] {icon-material}{icon-blade}{icon-rank} アルバレスト
 }
