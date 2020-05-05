@@ -1,18 +1,25 @@
 let BaseParams = {};
-let ArmorRank;
-let ArmorMaterial;
-let ShieldRank;
-let ShieldMaterial;
+let RankTables = {};
+let MaterialTables = {};
 let EnemySources = [];
 let ChestSources = [];
+
+const BLADES = ["dagger", "sword", "sword2h", "axe", "mace", "axe2h", "staff", "mace2h", "spear", "crossbow"];
+const ARMORS = ["head", "body", "arms", "legs"];
 
 let fused;
 let fusedStock = [];
 
 Armor = function(){};
 
-Armor.prototype.isShield = function(){
-    return (this.rim == "shield");
+Armor.prototype.synthType = function(){
+    if(BLADES.includes(this.rim)) return "blade";
+    if(this.rim == "shield") return "shield";
+    if(ARMORS.includes(this.rim)) return "armor";
+    return "";
+};
+Armor.prototype.rimForMaterial = function(){
+    return ["axe", "mace"].includes(this.rim) ? "axemace" : this.rim;
 };
 Armor.prototype.visibleDp = function(){
     return Math.ceil(this.dp / 100);
@@ -117,10 +124,7 @@ function newArmor(id){
 }
 
 function synth(parent1, parent2){
-    if(parent1.isShield() && !parent2.isShield()){
-        return [null, 0.0, false];
-    }
-    if(parent2.isShield() && !parent1.isShield()){
+    if(parent1.synthType() != parent2.synthType()){
         return [null, 0.0, false];
     }
 
@@ -156,14 +160,14 @@ function newId(){
 }
 
 function synthMaterial(parent1, parent2){
-    const table = parent1.isShield() ? ShieldMaterial : ArmorMaterial;
-    const index1 = table[0].indexOf(parent1.material + "-" + parent1.rim);
-    const index2 = table[0].indexOf(parent2.material + "-" + parent2.rim);
+    const table = MaterialTables[parent1.synthType()];
+    const index1 = table[0].indexOf(parent1.material + "-" + parent1.rimForMaterial());
+    const index2 = table[0].indexOf(parent2.material + "-" + parent2.rimForMaterial());
     return table[index1][index2];
 }
 
 function synthRimRank(parent1, parent2){
-    const table = parent1.isShield() ? ShieldRank : ArmorRank;
+    const table = RankTables[parent1.synthType()];
     const index1 = table[0].indexOf(parent1.rim + "-" + parent1.rank);
     const index2 = table[0].indexOf(parent2.rim + "-" + parent2.rank);
     return table[index1][index2].split("-");
@@ -286,14 +290,15 @@ function sourcesChange(slot){
     reloadSelect(slot, fusedStock.filter(a => {
       let match = true;
       if(material) match &= (a.material == material);
-      if(rim)      match &= (a.rim      == rim);
+      if(rim)      match &= (rim == "blade") ? BLADES.includes(a.rim) : (a.rim == rim);
       if(rank)     match &= (a.rank     == rank);
       return match;
     }).map(a => a.id));
   }
   else{
     let list = (sources == "enemy") ? EnemySources : ChestSources;
-    let regexcond = `^${material ? material : "[A-Z]"}-${rim ? rim : "[a-z]+"}-${rank ? rank : "\\d+"}$`;
+    const rimcond = (rim == "blade") ? `(${BLADES.join("|")})` : rim ? rim : "[a-z]+?(2h)?";
+    let regexcond = `^${material ? material : "[A-Z]"}-${rimcond}-${rank ? rank : "\\d+?"}$`;
     reloadSelect(slot, list.filter(a => a.id.match(regexcond)).map(a => a.id));
   }
 }
@@ -370,11 +375,11 @@ function setFuseResult(){
 }
 
 function maxDpCount(dp, max){
-  const realMax = Math.ceil(max / 100) * 100 - 99;
+  const realMax = Math.ceil(max / 100) * 100 - 100;
   let nowDp = dp;
   let count = 0;
   const recursion = function(){
-    if(nowDp >= realMax || count > 9) return;
+    if(nowDp > realMax || count > 9) return;
     nowDp = Math.floor((nowDp + max) / 2);
     count++;
     recursion();
@@ -390,12 +395,15 @@ function swap(){
   const material2 = $("#material2").val();
   const rim1      = $("#rim1").val();
   const rim2      = $("#rim2").val();
+  const rank1     = $("#rank1").val();
+  const rank2     = $("#rank2").val();
   const select1   = $("#select1").val();
   const select2   = $("#select2").val();
 
   $("#sources1").val(sources2);
   $("#material1").val(material2);
   $("#rim1").val(rim2);
+  $("#rank1").val(rank2);
   sourcesChange(1);
   $("#select1").val(select2);
   selectChange(1);
@@ -403,6 +411,7 @@ function swap(){
   $("#sources2").val(sources1);
   $("#material2").val(material1);
   $("#rim2").val(rim1);
+  $("#rank2").val(rank1);
   sourcesChange(2);
   $("#select2").val(select1);
   selectChange(2);
@@ -536,10 +545,12 @@ async function init(){
 
   const id = newId();
   $.csv.toObjects(await $.get(`base-param.csv?nocache=${id}`), {onParseValue: $.csv.hooks.castToScalar}).forEach(obj => BaseParams[obj.id] = obj);
-  ArmorRank      = $.csv.toArrays(await $.get(`armor-rank.csv?nocache=${id}`));
-  ArmorMaterial  = $.csv.toArrays(await $.get(`armor-material.csv?nocache=${id}`));
-  ShieldRank     = $.csv.toArrays(await $.get(`shield-rank.csv?nocache=${id}`));
-  ShieldMaterial = $.csv.toArrays(await $.get(`shield-material.csv?nocache=${id}`));
+      RankTables["armor"]  = $.csv.toArrays(await $.get(`armor-rank.csv?nocache=${id}`));
+  MaterialTables["armor"]  = $.csv.toArrays(await $.get(`armor-material.csv?nocache=${id}`));
+      RankTables["shield"] = $.csv.toArrays(await $.get(`shield-rank.csv?nocache=${id}`));
+  MaterialTables["shield"] = $.csv.toArrays(await $.get(`shield-material.csv?nocache=${id}`));
+      RankTables["blade"]  = $.csv.toArrays(await $.get(`blade-rank.csv?nocache=${id}`));
+  MaterialTables["blade"]  = $.csv.toArrays(await $.get(`blade-material.csv?nocache=${id}`));
   $.csv.toArrays(await $.get(`enemy-sources.csv?nocache=${id}`)).forEach(line => EnemySources.push({id:line[0], rooms:line.slice(1).filter(room => room)}));
   $.csv.toArrays(await $.get(`chest-sources.csv?nocache=${id}`)).forEach(line => ChestSources.push({id:line[0], rooms:line.slice(1).filter(room => room)}));
 
