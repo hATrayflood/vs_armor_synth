@@ -1,4 +1,5 @@
 title  = Vagrant Story - Armor Combine Simulator
+recipe = recipes
 slot1  = Slot 1
 slot2  = Slot 2
 fused  = Fused
