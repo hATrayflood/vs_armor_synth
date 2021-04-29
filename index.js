@@ -174,7 +174,7 @@ function synthRimRank(parent1, parent2){
 }
 
 function typeRate(parent1, parent2){
-    const    typesMatch =  matchTypes(parent1, parent2);
+    const    typesMatch = (parent1.maxTypes()[0] == parent2.maxTypes()[0]);
     const materialMatch = (parent1.material == parent2.material);
 
     if(typesMatch && materialMatch){
@@ -184,16 +184,6 @@ function typeRate(parent1, parent2){
         return 0.4;
     }
     return 0.6;
-}
-
-function matchTypes(parent1, parent2){
-    return combinationMatch(parent1.maxTypes(), parent2.maxTypes());
-}
-function combinationMatch(a1, a2){
-    return permutationMatch(a1.sort(), a2.sort());
-}
-function permutationMatch(a1, a2){
-    return (a1.toString() == a2.toString());
 }
 
 function mergeSources(parent1, parent2){
